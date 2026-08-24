@@ -1,19 +1,34 @@
+
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-from sklearn.preprocessing import StandardScaler
-import joblib
 import os
 
+
+# ============================================================
 # 1. Column names
+# ============================================================
+
 columns = [
-    "age", "sex", "cp", "trestbps", "chol",
-    "fbs", "restecg", "thalach", "exang",
-    "oldpeak", "slope", "ca", "thal", "target"
+    "age",
+    "sex",
+    "cp",
+    "trestbps",
+    "chol",
+    "fbs",
+    "restecg",
+    "thalach",
+    "exang",
+    "oldpeak",
+    "slope",
+    "ca",
+    "thal",
+    "target"
 ]
 
-# 2. Load dataset
+
+# ============================================================
+# 2. Load the UCI Cleveland dataset
+# ============================================================
+
 data_path = "dataset/processed.cleveland.data"
 
 df = pd.read_csv(
@@ -23,74 +38,98 @@ df = pd.read_csv(
 )
 
 print("Dataset loaded successfully!")
-print("Shape:", df.shape)
-print(df.head())
+print("Original shape:", df.shape)
 
-# 3. Convert columns to numeric
+
+# ============================================================
+# 3. Convert all columns to numeric
+# ============================================================
+
 df = df.apply(pd.to_numeric, errors="coerce")
 
-# 4. Handle missing values
-print("\nMissing values:")
+print("\nData types:")
+print(df.dtypes)
+
+
+# ============================================================
+# 4. Check missing values
+# ============================================================
+
+print("\nMissing values before handling:")
 print(df.isnull().sum())
 
-df = df.dropna()
 
-# 5. Convert target into binary
+# ============================================================
+# 5. Handle missing values
+# ============================================================
+
+# Fill missing numerical values with the median
+df = df.fillna(df.median(numeric_only=True))
+
+print("\nMissing values after handling:")
+print(df.isnull().sum())
+
+
+# ============================================================
+# 6. Convert target into binary
+# ============================================================
+
+# Original UCI target:
 # 0 = No disease
-# 1,2,3,4 = Disease
+# 1, 2, 3, 4 = Disease
+
 df["target"] = (df["target"] > 0).astype(int)
 
 print("\nTarget distribution:")
 print(df["target"].value_counts())
 
-# 6. Separate features and target
+print("\nTarget distribution (%):")
+print(df["target"].value_counts(normalize=True) * 100)
+
+
+# ============================================================
+# 7. Separate features and target
+# ============================================================
+
 X = df.drop("target", axis=1)
 y = df["target"]
 
-# 7. Train-test split
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    random_state=42,
-    stratify=y
+print("\nFeatures shape:", X.shape)
+print("Target shape:", y.shape)
+
+
+# ============================================================
+# 8. Create cleaned dataset
+# ============================================================
+
+# Combine the cleaned features and target
+cleaned_df = X.copy()
+cleaned_df["target"] = y
+
+
+# ============================================================
+# 9. Save cleaned dataset
+# ============================================================
+
+os.makedirs("dataset", exist_ok=True)
+
+output_path = "dataset/heart_cleaned.csv"
+
+cleaned_df.to_csv(
+    output_path,
+    index=False
 )
 
-# 8. Scale features
-scaler = StandardScaler()
+print("\n=============================")
+print("PREPROCESSING COMPLETED")
+print("=============================")
 
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+print("Cleaned dataset shape:", cleaned_df.shape)
+print("Saved to:", output_path)
 
-# 9. Train Logistic Regression
-model = LogisticRegression(max_iter=1000)
+print("\nFinal missing values:")
+print(cleaned_df.isnull().sum())
 
-model.fit(X_train, y_train)
+print("\nFirst 5 cleaned rows:")
+print(cleaned_df.head())
 
-# 10. Make predictions
-y_pred = model.predict(X_test)
-
-# 11. Evaluate
-accuracy = accuracy_score(y_test, y_pred)
-
-print("\n-----------------------------")
-print("MODEL RESULTS")
-print("-----------------------------")
-
-print("Accuracy:", accuracy)
-
-print("\nClassification Report:")
-print(classification_report(y_test, y_pred))
-
-print("\nConfusion Matrix:")
-print(confusion_matrix(y_test, y_pred))
-
-# 12. Save model and scaler
-os.makedirs("model", exist_ok=True)
-
-joblib.dump(model, "model/heart_disease_model.pkl")
-joblib.dump(scaler, "model/scaler.pkl")
-
-print("\nModel saved successfully!")
-print("model/heart_disease_model.pkl")
-print("model/scaler.pkl")
