@@ -1,0 +1,30 @@
+HEART DISEASE DATA PREPROCESSING SUMMARY
+=======================================================
+
+Original dataset shape: (303, 14)
+Training samples: 242
+Testing samples: 61
+Train/test split: 80/20
+Random state: 42
+Stratification: Yes
+
+Missing value handling:
+- Numerical features: training-set median
+- Categorical features: training-set mode
+
+Categorical encoding:
+- One-hot encoding
+
+Scaling:
+- StandardScaler
+- Fitted only on training data
+
+Target mapping:
+0 = No heart disease
+1 = Severity 1
+2 = Severity 2
+3 = Severity 3
+4 = Severity 4
+
+Final number of features: 28
+Machine learning model trained: NO

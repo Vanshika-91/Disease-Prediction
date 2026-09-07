@@ -1,0 +1,9 @@
+HEART DISEASE DATASET - EDA OBSERVATIONS
+==================================================
+
+1. Dataset contains 303 rows and 14 columns.
+2. Duplicate rows found: 0.
+3. Missing values are present in: ca, thal.
+4. The target variable contains five classes: 0, 1, 2, 3 and 4.
+5. Target interpretation: 0 = No heart disease; 1–4 = increasing disease severity.
+6. The feature with the strongest absolute correlation with target is 'ca'.

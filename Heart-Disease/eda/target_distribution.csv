@@ -1,0 +1,6 @@
+target,meaning,count,percentage
+0,No heart disease,164,54.13
+1,Severity 1,55,18.15
+2,Severity 2,36,11.88
+3,Severity 3,35,11.55
+4,Severity 4,13,4.29

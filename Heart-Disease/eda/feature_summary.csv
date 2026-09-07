@@ -1,0 +1,15 @@
+feature,type,missing_values,unique_values
+age,numerical,0,41
+sex,categorical,0,2
+cp,categorical,0,4
+trestbps,numerical,0,50
+chol,numerical,0,152
+fbs,categorical,0,2
+restecg,categorical,0,3
+thalach,numerical,0,91
+exang,categorical,0,2
+oldpeak,numerical,0,40
+slope,categorical,0,3
+ca,categorical,4,4
+thal,categorical,2,3
+target,target,0,5
