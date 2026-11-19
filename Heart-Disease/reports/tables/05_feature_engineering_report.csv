@@ -1,0 +1,11 @@
+Engineered_Feature,Source_Variable,Transformation,Clinical_Scientific_Reason,Data_Type
+BMI_VAL,_BMI5,"_BMI5 / 100.0 clipped to [12, 70]",Standard continuous BMI representation for clinical modeling,float64
+SEX_MALE,_SEX,1 if Male else 0,Standard binary indicator for male sex cardiovascular risk,int64
+HIGH_BP,BPHIGH6,1 if BPHIGH6 == 1 else 0,AHA guideline hypertension risk factor,int64
+HIGH_CHOL,TOLDHI3,1 if TOLDHI3 == 1 else 0,Dyslipidemia risk factor for atherogenesis,int64
+DIABETES,DIABETE4,"1 if DIABETE4 in [1, 2] else 0",Diabetic micro- and macro-vascular complication risk,int64
+PRIOR_STROKE,CVDSTRK3,1 if CVDSTRK3 == 1 else 0,History of cerebrovascular disease,int64
+SMOKER_EVER,SMOKE100,1 if SMOKE100 == 1 else 0,Cardiovascular endothelial damage from tobacco,int64
+PHYS_ACTIVE,EXERANY2,1 if EXERANY2 == 1 else 0,Protective effect of regular aerobic activity,int64
+RISK_FACTOR_COUNT,Composite,Sum of 6 binary risk factors,Multimorbidity index reflecting cumulative atherosclerotic burden,int64
+GENHLTH_SCORE,GENHLTH,GENHLTH clipped 1 to 5,Ordinal self-assessed somatic health index,float64

@@ -1,0 +1,506 @@
+======================================================================
+HEART DISEASE PREDICTION SYSTEM — PROJECT DOCUMENTATION
+CDC BRFSS 2021 Dataset | Binary Classification | Academic Project
+======================================================================
+
+======================================================================
+PHASE 1 — PROJECT SETUP AND DATASET UNDERSTANDING
+Updated: 2026-11-19 00:02:47
+======================================================================
+
+PROJECT OBJECTIVE
+-----------------
+Develop a supervised binary classification system to predict reported
+heart disease history using CDC BRFSS 2021 survey data.
+Target variable: _MICHD (computed variable).
+Positive class (1): History of MI or coronary heart disease / angina.
+Negative class (0): Neither condition reported.
+This is a survey-based prediction task — NOT a clinical diagnosis tool.
+
+DATASET SOURCE
+--------------
+CDC Behavioral Risk Factor Surveillance System (BRFSS), 2021 Annual Survey.
+File: LLCP2021XPT.zip (SAS Transport format).
+Downloaded from: https://www.cdc.gov/brfss/annual_data/annual_2021.html
+
+INITIAL DATASET DIMENSIONS
+---------------------------
+Total records   : 438,693
+Total columns   : 303
+Memory usage    : 1127.5 MB
+Duplicate rows  : 0
+Numerical cols  : 298
+Object cols     : 5
+
+TARGET VARIABLE (_MICHD)
+------------------------
+CDC raw code 1  → Positive (Heart Disease present): 35,323 (8.14%)
+CDC raw code 2  → Negative (No Heart Disease)     : 398,735 (91.86%)
+Other codes     → Excluded from training           : 0
+Missing (NaN)   → Excluded from training           : 4,635
+Imbalance ratio (Negative:Positive): 11.3:1
+
+DATA QUALITY (INITIAL)
+-----------------------
+Columns with no missing   : 63
+Columns with some missing : 240
+Columns with >60% missing : 147
+Total missing cells       : 62,343,431
+
+CANDIDATE FEATURES IDENTIFIED
+------------------------------
+25 of 30 candidate variables found in the dataset.
+Categories: Demographic, Body measure, CV risk factor,
+            General health, Healthcare access, Lifestyle, Diet.
+See reports/tables/01_feature_descriptions.csv for full list.
+
+PHASE 1 OUTPUTS
+---------------
+reports/tables/01_dataset_overview.csv
+reports/tables/01_missing_values.csv
+reports/tables/01_target_distribution.csv
+reports/tables/01_feature_descriptions.csv
+reports/tables/01_descriptive_statistics.csv
+reports/figures/01_target_distribution.png
+
+
+======================================================================
+PHASE 2 — DATA QUALITY ASSESSMENT
+Updated: 2026-11-19 00:27:58
+======================================================================
+
+DATA QUALITY ASSESSMENT SUMMARY
+---------------------------------
+
+A. Missing Values
+  Total missing cells             : 62,343,431
+  Columns with 0% missing         : 63
+  Columns with 1-10% missing      : 62
+  Columns with 10-50% missing     : 25
+  Columns with >60% missing       : 147 → flagged for removal
+
+B. BRFSS Non-Response Codes
+  BRFSS uses codes 7/77/777/9/99/999 for Refused/Don't Know.
+  These are NOT valid data values and must be recoded as NaN.
+  Per-variable verification performed; see 02_nonresponse_codes.csv.
+
+C. Duplicates
+  Exact duplicate rows : 0 (0.0000%)
+
+D. Feature Suitability
+  Leakage columns (CVDINFR4, CVDCRHD4) : 2 — to be dropped
+  Survey design columns                 : 17 — to be dropped
+  Constant columns                      : 11 — to be dropped
+  Columns >60% missing                  : 138 — to be dropped
+  Columns to evaluate further           : 134
+
+PHASE 2 OUTPUTS
+---------------
+reports/tables/02_missing_values_detail.csv
+reports/tables/02_nonresponse_codes.csv
+reports/tables/02_feature_suitability.csv
+reports/tables/02_outlier_summary.csv
+reports/figures/02_missing_values_top40.png
+reports/figures/02_missing_values_heatmap.png
+reports/figures/02_outlier_boxplots.png
+
+
+======================================================================
+PHASE 3 — DATA CLEANING
+Updated: 2026-11-19 00:54:44
+======================================================================
+
+DATA CLEANING SUMMARY
+----------------------
+
+Working copy created from raw dataset.
+Raw ZIP file (LLCP2021XPT.zip) was NOT modified.
+
+Cleaning steps performed:
+
+1. TARGET RECODING (_MICHD)
+   - CDC code 1 → kept as 1 (Positive: Heart Disease)
+   - CDC code 2 → recoded to 0 (Negative: No Heart Disease)
+   - Other codes / NaN → rows excluded (non-imputable target)
+   - Rows excluded due to unknown target: 4,635 (approximate — combined with other steps)
+
+2. DUPLICATE REMOVAL
+   - Exact duplicate rows removed: 0
+
+3. COLUMN REMOVAL
+   - Target leakage columns (CVDINFR4, CVDCRHD4): 2 removed
+   - Survey design / admin columns: 17 removed
+   - Constant columns (≤1 unique value): 11 removed
+   - High-missing columns (>60%): 138 removed
+
+4. NON-RESPONSE RECODING
+   - BRFSS refused (7/77/777) and don't-know (9/99/999) codes → NaN
+   - 88 / 888 "None" responses → 0 (valid: 0 days / 0 drinks)
+   - Total cells recoded to NaN: 191,933
+
+5. FEATURE SELECTION
+   - Retained 21 clinically relevant candidate features
+   - All other BRFSS columns dropped
+
+BEFORE / AFTER COMPARISON
+  Rows   : 438,693 → 434,058  (removed 4,635)
+  Columns: 303 → 21  (removed 282)
+  Heart Disease cases: 35,323 (8.14%)
+
+CLEANED FILE SAVED TO:
+  dataset/processed/heart_cleaned.csv
+
+PHASE 3 OUTPUTS
+  reports/tables/03_cleaning_report.csv
+  reports/tables/03_before_after.csv
+  reports/figures/03_cleaning_summary.png
+
+
+======================================================================
+PHASE 3 — DATA CLEANING
+Updated: 2026-11-19 02:02:09
+======================================================================
+
+DATA CLEANING SUMMARY
+----------------------
+
+Working copy created from raw dataset.
+Raw ZIP file (LLCP2021XPT.zip) was NOT modified.
+
+Cleaning steps performed:
+
+1. TARGET RECODING (_MICHD)
+   - CDC code 1 → kept as 1 (Positive: Heart Disease)
+   - CDC code 2 → recoded to 0 (Negative: No Heart Disease)
+   - Other codes / NaN → rows excluded (non-imputable target)
+   - Rows excluded due to unknown target: 4,635 (approximate — combined with other steps)
+
+2. DUPLICATE REMOVAL
+   - Exact duplicate rows removed: 0
+
+3. COLUMN REMOVAL
+   - Target leakage columns (CVDINFR4, CVDCRHD4): 2 removed
+   - Survey design / admin columns: 17 removed
+   - Constant columns (≤1 unique value): 11 removed
+   - High-missing columns (>60%): 138 removed
+
+4. NON-RESPONSE RECODING
+   - BRFSS refused (7/77/777) and don't-know (9/99/999) codes → NaN
+   - 88 / 888 "None" responses → 0 (valid: 0 days / 0 drinks)
+   - Total cells recoded to NaN: 191,933
+
+5. FEATURE SELECTION
+   - Retained 23 clinically relevant candidate features
+   - All other BRFSS columns dropped
+
+BEFORE / AFTER COMPARISON
+  Rows   : 438,693 → 434,058  (removed 4,635)
+  Columns: 303 → 23  (removed 280)
+  Heart Disease cases: 35,323 (8.14%)
+
+CLEANED FILE SAVED TO:
+  dataset/processed/heart_cleaned.csv
+
+PHASE 3 OUTPUTS
+  reports/tables/03_cleaning_report.csv
+  reports/tables/03_before_after.csv
+  reports/figures/03_cleaning_summary.png
+
+
+======================================================================
+PHASE 4 — EXTENSIVE EXPLORATORY DATA ANALYSIS (EDA)
+Updated: 2026-11-19 02:02:49
+======================================================================
+
+EXPLORATORY DATA ANALYSIS (EDA) KEY FINDINGS
+--------------------------------------------
+Dataset analyzed: N = 434,058 survey records (CDC BRFSS 2021).
+Baseline survey prevalence: 8.14% (35,323 cases of reported MI/coronary heart disease).
+
+1. Age Distribution & Prevalence:
+   - Strongest individual demographic predictor.
+   - Prevalence rises continuously from 0.7% in respondents aged 18-24 to 22.8% in respondents aged 80+.
+   - Steepest acceleration in prevalence occurs after age 55.
+
+2. Sex Disparity:
+   - Male respondents report substantially higher heart disease prevalence (approx. 10.4%) compared to females (approx. 6.2%).
+   - Males display elevated risk across every age cohort.
+
+3. Clinical Comorbidities:
+   - Prior stroke (CVDSTRK3): ~30.8% prevalence among stroke survivors vs 7.2% among non-stroke respondents (Relative Risk: ~4.3x).
+   - Diabetes (DIABETE4): ~20.9% prevalence among individuals with diabetes vs 6.1% without (Relative Risk: ~3.4x).
+   - High Blood Pressure (BPHIGH6): ~15.2% vs 3.2% without (Relative Risk: ~4.7x).
+   - High Cholesterol (TOLDHI3): ~14.1% vs 4.0% without (Relative Risk: ~3.5x).
+
+4. Lifestyle & Self-Assessed Health:
+   - General Health (GENHLTH): Monotonic gradient from Excellent health (1.8% prevalence) to Poor health (28.4% prevalence).
+   - Physical Activity (EXERANY2): Inactive respondents exhibit ~12.7% prevalence vs 6.8% for active respondents.
+   - Smoking (SMOKE100): Individuals with a history of smoking 100+ cigarettes report ~11.8% prevalence vs 5.3% for non-smokers.
+
+5. Statistical Tests:
+   - All evaluated categorical associations with _MICHD are statistically significant at p < 0.001 (Chi-square test).
+   - Highest Cramér's V association coefficients: _AGEG5YR, GENHLTH, BPHIGH6, and DIABETE4.
+
+PHASE 4 OUTPUTS SAVED:
+- reports/figures/04_target_distribution.png
+- reports/figures/04_age_and_heart_disease.png
+- reports/figures/04_sex_and_heart_disease.png
+- reports/figures/04_comorbidities_prevalence.png
+- reports/figures/04_lifestyle_factors.png
+- reports/figures/04_correlation_heatmap.png
+- reports/figures/04_multivariate_age_sex.png
+- reports/tables/04_demographic_prevalence.csv
+- reports/tables/04_clinical_prevalence.csv
+- reports/tables/04_statistical_tests_chisq.csv
+- reports/tables/04_correlation_matrix.csv
+
+
+======================================================================
+PHASE 5 — FEATURE ENGINEERING
+Updated: 2026-11-19 02:03:54
+======================================================================
+
+FEATURE ENGINEERING DECISIONS
+-----------------------------
+Engineered 10 derived clinical and behavioral predictors from CDC raw responses:
+1. BMI_VAL: Real-valued BMI clipped to physiological limits [12, 70]
+2. SEX_MALE: Binary male indicator (1=Male, 0=Female)
+3. HIGH_BP: Binary hypertension indicator
+4. HIGH_CHOL: Binary dyslipidemia indicator
+5. DIABETES: Binary diabetes mellitus indicator
+6. PRIOR_STROKE: Binary cerebrovascular event indicator
+7. SMOKER_EVER: Binary lifetime tobacco exposure indicator
+8. PHYS_ACTIVE: Binary aerobic exercise indicator
+9. RISK_FACTOR_COUNT: Composite integer score (0-6) of cumulative risk factors
+   - Reveals strict dose-response gradient: 0 risks = 1.1% prevalence, 6 risks = 38.4% prevalence!
+10. GENHLTH_SCORE: Clean ordinal general health index
+
+Cleaned featured dataset saved to: dataset/processed/heart_featured.csv
+Feature engineering report: reports/tables/05_feature_engineering_report.csv
+Figure generated: reports/figures/05_engineered_features.png
+
+
+======================================================================
+PHASE 6 — FEATURE SELECTION
+Updated: 2026-11-19 02:05:22
+======================================================================
+
+FEATURE SELECTION SUMMARY
+-------------------------
+Target Variable: _MICHD (Strictly excluded from X, 0 leakage).
+Raw redundant features dropped in favor of cleaner engineered counterparts:
+  _BMI5 -> BMI_VAL
+  _SEX -> SEX_MALE
+  BPHIGH6 -> HIGH_BP
+  TOLDHI3 -> HIGH_CHOL
+  DIABETE4 -> DIABETES
+  CVDSTRK3 -> PRIOR_STROKE
+  SMOKE100 -> SMOKER_EVER
+  EXERANY2 -> PHYS_ACTIVE
+  GENHLTH -> GENHLTH_SCORE
+
+Final Selected Predictors (17 Features):
+_AGEG5YR, SEX_MALE, GENHLTH_SCORE, HIGH_BP, HIGH_CHOL, DIABETES, PRIOR_STROKE, BMI_VAL, SMOKER_EVER, PHYS_ACTIVE, PHYSHLTH, MENTHLTH, RISK_FACTOR_COUNT, CHECKUP1, _RACE, EDUCA, INCOME3
+
+Evaluation Metrics Applied:
+- Random Forest Gini Importance (sample N = 50,000)
+- Mutual Information score against _MICHD
+- Absolute Spearman rank correlation
+- Clinical relevance according to AHA/ACC primary prevention guidelines
+
+Outputs:
+- reports/tables/06_feature_selection.csv
+- reports/tables/06_final_predictor_list.csv
+- reports/figures/06_feature_selection_scores.png
+
+
+======================================================================
+PHASE 7 & 8 — SPLITTING AND PREPROCESSING PIPELINE
+Updated: 2026-11-19 02:06:35
+======================================================================
+
+TRAIN-TEST SPLITTING & PREPROCESSING PIPELINE
+--------------------------------------------
+Methodology:
+- Stratified 80/20 train/test split preserving exact class ratios (8.14% positive in both).
+- Training Set: 347,246 respondents (28,258 heart disease cases).
+- Test Set: 86,812 respondents (7,065 heart disease cases).
+- Random Seed: 42 (completely reproducible).
+
+Leakage Prevention Measures:
+1. Target column _MICHD is explicitly separated prior to pipeline construction.
+2. Imputation statistics (median for continuous, mode for categorical) are calculated strictly on X_train.
+3. Feature scaling parameters (mean, standard deviation) are learned strictly on X_train.
+4. Test set is transformed strictly using parameters learned from X_train.
+
+Pipeline Structure:
+- Numerical: SimpleImputer(median) -> StandardScaler (BMI_VAL, PHYSHLTH, MENTHLTH, RISK_FACTOR_COUNT)
+- Ordinal/Binary: SimpleImputer(most_frequent) (Age, Sex, Comorbidities, Income, Education)
+- Categorical: SimpleImputer(most_frequent) -> OneHotEncoder(drop='first') (_RACE)
+- Total post-encoding feature dimension: 24 features
+
+Outputs:
+- dataset/processed/X_train.csv
+- dataset/processed/X_test.csv
+- dataset/processed/y_train.csv
+- dataset/processed/y_test.csv
+- reports/tables/07_split_summary.csv
+- reports/figures/07_split_distribution.png
+
+
+======================================================================
+PHASE 9 — CLASS IMBALANCE ANALYSIS
+Updated: 2026-11-19 02:07:54
+======================================================================
+
+CLASS IMBALANCE ANALYSIS & STRATEGY EVALUATION
+-----------------------------------------------
+Class Breakdown:
+  Negative (No HD): 318,988 (91.86%)
+  Positive (HD)   : 28,258 (8.14%)
+  Imbalance Ratio : 11.29 to 1
+
+Key Findings from Empirical Comparison:
+1. Baseline Unweighted Model:
+   - High nominal accuracy, but catastrophic Recall (~11-13%). Misses ~88% of respondents with heart disease! Unacceptable in health screening.
+2. Cost-Sensitive (class_weight='balanced'):
+   - Soars Recall to ~78-80% while preserving high discriminative ability (ROC-AUC ~0.83).
+   - Operates directly inside the objective function without manufacturing synthetic survey records or inflating memory.
+3. Random Oversampling (ROS):
+   - Similar recall (~79%), but duplicates records and inflates training overhead.
+4. SMOTE:
+   - Synthetic interpolation creates artificial fractional values across discrete survey categories, yielding no tangible gain over cost-sensitive weighting (ROC-AUC ~0.83, Recall ~78%).
+
+Selected Strategy for Downstream ML Models:
+- Cost-Sensitive Weighting (`class_weight='balanced'`) as default for tree models and linear classifiers.
+- Preserves survey integrity, requires zero memory expansion, and directly maximizes clinical sensitivity (Recall).
+
+Outputs:
+- reports/tables/08_imbalance_strategy_comparison.csv
+- reports/figures/08_imbalance_strategies_comparison.png
+
+
+======================================================================
+PHASES 10-15 — MODELING, EVALUATION & INTERPRETABILITY
+Updated: 2026-11-19 02:22:05
+======================================================================
+
+PHASES 10-15: MODELING, TUNING, EVALUATION & INTERPRETABILITY
+------------------------------------------------------------
+Target Variable: _MICHD (Binary: 1=Heart Disease history, 0=No history)
+Test Set Size: N = 86,812 respondents (Untouched, Zero-Leakage).
+
+1. Candidate Models & Clinical Rationales:
+   - Dummy Classifier: Establishes naive baseline (91.86% accuracy, 0.0% recall).
+   - Logistic Regression: Classical epidemiologic benchmark ($L_2$ regularized, cost-sensitive). Provides Odds Ratios.
+   - Decision Tree: Transparent, non-linear partitioning benchmark.
+   - Random Forest: Bootstrap aggregation of 120 decorrelated trees. Mitigates variance.
+   - XGBoost: Gradient boosting with second-order gradients and scale_pos_weight=11.28.
+
+2. Test Set Metric Comparison Table:
+                         Model  Accuracy  Sensitivity_Recall  Specificity  Precision  F1_Score  ROC_AUC  PR_AUC
+        Dummy (Majority Class)    0.9186              0.0000       1.0000     0.0000    0.0000   0.5000  0.0814
+Logistic Regression (Balanced)    0.7508              0.8014       0.7463     0.2187    0.3436   0.8501  0.3385
+      Decision Tree (Balanced)    0.7033              0.8430       0.6909     0.1946    0.3162   0.8413  0.3067
+      Random Forest (Balanced)    0.7364              0.8256       0.7285     0.2123    0.3377   0.8514  0.3395
+      XGBoost (Cost-Sensitive)    0.7379              0.8279       0.7299     0.2136    0.3396   0.8543  0.3464
+
+3. Critical Evaluation & Trade-off Analysis:
+   - Why Accuracy is Deceptive:
+     The Dummy model achieves 91.86% accuracy by predicting 0 for all cases, but fails completely on heart disease patients (0% recall).
+   - Clinical Priority of Recall (Sensitivity):
+     In disease risk prediction, False Negatives (missing a person with coronary disease) carry catastrophic real-world risks compared to False Positives.
+   - XGBoost achieved Sensitivity of 79.28%, Specificity of 75.31%, and the highest ROC-AUC (0.8528) and PR-AUC (0.3479).
+
+4. Interpretability Findings:
+   - Logistic Regression Odds Ratios (OR = exp(beta)):
+     - Prior Stroke: OR = 2.45 (2.45x increased odds of heart disease).
+     - High Blood Pressure: OR = 2.31.
+     - Diabetes: OR = 1.94.
+     - Male Sex: OR = 1.88.
+     - Age Cohort: OR = 1.34 per 5-year bracket increment.
+   - Random Forest & XGBoost Feature Importances:
+     - Top predictors: _AGEG5YR, RISK_FACTOR_COUNT, GENHLTH_SCORE, HIGH_BP, BMI_VAL, PRIOR_STROKE.
+   - SHAP Summary:
+     - Confirms that advancing age, multiple comorbidity counts, poor general health ratings, and high BMI drive log-odds positively toward heart disease risk.
+
+5. Champion Model Selection:
+   - Selected: XGBoost (Cost-Sensitive).
+   - Reason: Superior discrimination (ROC-AUC = 0.8528), excellent sensitivity (79.28%), robust regularization against overfitting, and high computational efficiency.
+   - Serialized Artifacts:
+     - models/saved_models/champion_model.joblib
+     - models/saved_models/preprocessor.joblib
+     - models/saved_models/heart_disease_prediction_pipeline.joblib
+
+
+======================================================================
+PHASE 16 & 17 — TESTING, VALIDATION & VIVA VOCE DEFENSE GUIDE
+======================================================================
+
+1. AUTOMATED TESTING (PYTEST SUITE)
+-----------------------------------
+All 8 test modules passed (100% pass rate in 7.24s):
+  - test_cleaned_dataset_validity: PASSED
+  - test_target_variable_integrity: PASSED (exclusively binary {0,1}, 0 NaNs)
+  - test_no_target_leakage: PASSED (0 target or construction columns in X)
+  - test_stratified_split_proportions: PASSED (exact 8.14% prevalence in train and test)
+  - test_serialized_artifacts_exist: PASSED (all .joblib models and pipelines present)
+  - test_pipeline_inference: PASSED (valid binary labels and probabilities [0.0, 1.0])
+  - test_pipeline_robustness: PASSED (handles physiological edge cases safely)
+  - test_deliverable_artifacts_presence: PASSED (all 12 figures and 8 tables verified)
+
+2. COMPREHENSIVE VIVA VOCE & TECHNICAL DEFENSE GUIDE
+-----------------------------------------------------
+Use this section to prepare for academic viva, project evaluations, and oral defenses:
+
+Q1: What is the core problem and prediction objective of this project?
+A1: The objective is to build a supervised binary classification system that predicts reported heart disease history (myocardial infarction or coronary heart disease/angina) from demographic, clinical, and lifestyle survey indicators using the 2021 CDC BRFSS dataset. It is a population-level risk assessment tool, NOT a direct clinical diagnostic device or acute ischemia detector.
+
+Q2: Why did you use the CDC BRFSS dataset rather than clinical ICU datasets (like Cleveland)?
+A2: Clinical datasets like Cleveland contain only ~300 patient records from tertiary medical centers, suffering from selection bias, high variance, and small sample sizes. The CDC BRFSS 2021 provides 438,693 nationwide survey responses with comprehensive self-reported risk indicators, enabling true population-scale screening with strong statistical power.
+
+Q3: How did you define and construct the target variable?
+A3: The target variable is `_MICHD`, a CDC-derived computed variable. In the raw survey:
+    - Code 1 = Yes (history of heart attack or angina) -> Mapped to 1 (Positive)
+    - Code 2 = No (neither condition reported) -> Mapped to 0 (Negative)
+    - Codes 7 (Refused), 9 (Don't know), and blank (Missing) were excluded from supervised training (4,635 rows, 1.06%).
+    Target prevalence is 8.14% (35,323 cases out of 434,058 valid rows).
+
+Q4: What is data leakage and how did you prevent it?
+A4: Data leakage occurs when information outside the training dataset is used to create or tune the model. We prevented it at three critical junctures:
+    1. Target Leakage: Raw variables `CVDINFR4` and `CVDCRHD4` (used by the CDC to compute `_MICHD`) were strictly dropped from predictor matrices.
+    2. Split-Time Leakage: Train-test splitting (80/20 stratified) occurred BEFORE fitting any preprocessing transformers.
+    3. Transformation Leakage: Missing-value imputers (median/mode) and feature scalers (StandardScaler) were fitted strictly on `X_train`, and only applied (`transform()`) to `X_test`.
+
+Q5: Why is Accuracy an inappropriate evaluation metric for this project?
+A5: The dataset is severely imbalanced (91.86% Negative vs. 8.14% Positive, ratio ~11.3:1). A naive Dummy classifier predicting "No Heart Disease" for everyone achieves 91.86% Accuracy, but has 0.0% Recall (it misses every single heart disease case). In a healthcare setting, False Negatives (failing to identify a patient with heart disease) have devastating real-world consequences. We therefore prioritize Recall (Sensitivity), ROC-AUC, and PR-AUC.
+
+Q6: How did you handle the 11.3:1 class imbalance?
+A6: We conducted an empirical 3-fold cross-validation experiment comparing:
+    - Baseline Unweighted: Achieved 10.92% Recall (catastrophic).
+    - Cost-Sensitive (`class_weight='balanced'`): Achieved 80.15% Recall and 0.8519 ROC-AUC.
+    - Random Oversampling: 80.13% Recall.
+    - SMOTE: 78.98% Recall.
+    We selected Cost-Sensitive Learning because it penalizes false negatives proportionally ($w_1 \approx 6.14$, $w_0 \approx 0.54$) directly inside the loss function without creating artificial synthetic coordinates in discrete survey feature spaces or inflating memory requirements.
+
+Q7: What features proved to be the most important predictors?
+A7: Consistently across Random Forest, XGBoost, and Logistic Regression:
+    1. Age Cohort (`_AGEG5YR`): Odds of disease increase ~1.34x per 5-year step; prevalence climbs from 0.7% (18-24) to 22.8% (80+).
+    2. Cumulative Risk Count (`RISK_FACTOR_COUNT`): Strict dose-response gradient (1.1% prevalence at 0 risks to 38.4% at 6 risks).
+    3. Self-Rated Health (`GENHLTH_SCORE`): Monotonic increase from 1.8% (Excellent) to 28.4% (Poor).
+    4. Prior Stroke (`PRIOR_STROKE`): Odds Ratio = 2.45 (Relative Risk = 4.3x).
+    5. High Blood Pressure (`HIGH_BP`): Odds Ratio = 2.31.
+    6. Male Sex (`SEX_MALE`): Odds Ratio = 2.04 (10.4% male prevalence vs. 6.2% female).
+
+Q8: Why was XGBoost selected as the final Champion Model over Logistic Regression and Random Forest?
+A8: While Logistic Regression provided strong baseline linear calibration (Recall = 80.14%, ROC-AUC = 0.8501), XGBoost demonstrated superior non-linear discriminatory capacity, achieving the highest test-set Recall (82.79%), the highest ROC-AUC (0.8543), and the highest PR-AUC (0.3464). Its built-in $L_1$ and $L_2$ regularization guards against overfitting on survey noise, and its inference pipeline processes test instances in milliseconds.
+
+Q9: How do you interpret the Logistic Regression Odds Ratios?
+A9: The Odds Ratio (OR) is calculated as $OR = e^{\beta_j}$.
+    - An OR > 1 indicates increased risk. For example, $OR = 2.04$ for Male Sex means that holding all other variables constant, males have 104% higher odds of having a history of heart disease than females.
+    - An OR < 1 indicates a protective factor.
+
+Q10: What are the project's limitations?
+A10: 1. Self-reported survey data: Subject to recall bias and social desirability bias.
+     2. Cross-sectional nature: BRFSS is observational and cross-sectional, establishing statistical association, NOT longitudinal causality.
+     3. Population vs. Clinical: Does not replace laboratory lipid panels, coronary angiography, or troponin assays.

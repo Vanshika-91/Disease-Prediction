@@ -1,0 +1,5 @@
+cdc_code,meaning,count,percent
+1,Heart Disease / MI,35323,8.05
+2,No Heart Disease,398735,90.89
+other,Other codes (excluded),0,0.0
+missing,Missing (NaN),4635,1.06

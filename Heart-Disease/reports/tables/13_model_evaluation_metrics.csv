@@ -1,0 +1,6 @@
+Model,Accuracy,Sensitivity_Recall,Specificity,Precision,F1_Score,ROC_AUC,PR_AUC,True_Positives,False_Negatives,True_Negatives,False_Positives
+Dummy (Majority Class),0.9186,0.0,1.0,0.0,0.0,0.5,0.0814,0,7065,79747,0
+Logistic Regression (Balanced),0.7508,0.8014,0.7463,0.2187,0.3436,0.8501,0.3385,5662,1403,59518,20229
+Decision Tree (Balanced),0.7033,0.843,0.6909,0.1946,0.3162,0.8413,0.3067,5956,1109,55099,24648
+Random Forest (Balanced),0.7364,0.8256,0.7285,0.2123,0.3377,0.8514,0.3395,5833,1232,58099,21648
+XGBoost (Cost-Sensitive),0.7379,0.8279,0.7299,0.2136,0.3396,0.8543,0.3464,5849,1216,58211,21536

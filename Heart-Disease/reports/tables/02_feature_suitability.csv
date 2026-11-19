@@ -1,0 +1,304 @@
+column,missing_pct,unique_values,decision,reason
+_STATE,0.0,53,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+FMONTH,0.0,12,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+IDATE,0.0,420,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+IMONTH,0.0,12,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+IDAY,0.0,31,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+IYEAR,0.0,2,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+DISPCODE,0.0,2,EVALUATE,To be assessed in Phase 6 feature selection
+SEQNO,0.0,39095,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_PSU,0.0,39095,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+CTELENM1,73.15,2,DROP — HIGH MISSING,73.2% missing exceeds 60% threshold
+PVTRESD1,73.15,2,DROP — HIGH MISSING,73.2% missing exceeds 60% threshold
+COLGHOUS,99.99,1,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+STATERE1,73.15,1,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+CELPHON1,73.15,1,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+LADULT1,73.15,2,DROP — HIGH MISSING,73.2% missing exceeds 60% threshold
+COLGSEX,99.99,2,DROP — HIGH MISSING,100.0% missing exceeds 60% threshold
+NUMADULT,73.16,15,DROP — HIGH MISSING,73.2% missing exceeds 60% threshold
+LANDSEX,88.64,4,DROP — HIGH MISSING,88.6% missing exceeds 60% threshold
+NUMMEN,85.08,12,DROP — HIGH MISSING,85.1% missing exceeds 60% threshold
+NUMWOMEN,85.08,11,DROP — HIGH MISSING,85.1% missing exceeds 60% threshold
+RESPSLCT,85.26,4,DROP — HIGH MISSING,85.3% missing exceeds 60% threshold
+SAFETIME,26.85,1,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+CTELNUM1,26.85,1,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+CELLFON5,26.85,1,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+CADULT1,26.85,1,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+CELLSEX,26.85,4,EVALUATE,To be assessed in Phase 6 feature selection
+PVTRESD3,26.85,2,EVALUATE,To be assessed in Phase 6 feature selection
+CCLGHOUS,99.71,1,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+CSTATE1,26.85,2,EVALUATE,To be assessed in Phase 6 feature selection
+LANDLINE,26.85,4,EVALUATE,To be assessed in Phase 6 feature selection
+HHADULT,26.85,32,EVALUATE,To be assessed in Phase 6 feature selection
+SEXVAR,0.0,2,EVALUATE,To be assessed in Phase 6 feature selection
+GENHLTH,0.0,7,EVALUATE,To be assessed in Phase 6 feature selection
+PHYSHLTH,0.0,33,EVALUATE,To be assessed in Phase 6 feature selection
+MENTHLTH,0.0,33,EVALUATE,To be assessed in Phase 6 feature selection
+POORHLTH,46.79,33,EVALUATE,To be assessed in Phase 6 feature selection
+PRIMINSR,0.0,13,EVALUATE,To be assessed in Phase 6 feature selection
+PERSDOC3,0.0,5,EVALUATE,To be assessed in Phase 6 feature selection
+MEDCOST1,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+CHECKUP1,0.0,7,EVALUATE,To be assessed in Phase 6 feature selection
+EXERANY2,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+BPHIGH6,0.0,6,EVALUATE,To be assessed in Phase 6 feature selection
+BPMEDS,60.76,4,DROP — HIGH MISSING,60.8% missing exceeds 60% threshold
+CHOLCHK3,0.0,9,EVALUATE,To be assessed in Phase 6 feature selection
+TOLDHI3,13.87,4,EVALUATE,To be assessed in Phase 6 feature selection
+CHOLMED3,14.04,4,EVALUATE,To be assessed in Phase 6 feature selection
+CVDINFR4,0.0,4,DROP — LEAKAGE,Used to construct _MICHD; causes target leakage
+CVDCRHD4,0.0,4,DROP — LEAKAGE,Used to construct _MICHD; causes target leakage
+CVDSTRK3,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+ASTHMA3,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+ASTHNOW,85.98,4,DROP — HIGH MISSING,86.0% missing exceeds 60% threshold
+CHCSCNCR,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+CHCOCNCR,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+CHCCOPD3,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+ADDEPEV3,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+CHCKDNY2,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+DIABETE4,0.0,6,EVALUATE,To be assessed in Phase 6 feature selection
+DIABAGE3,86.87,99,DROP — HIGH MISSING,86.9% missing exceeds 60% threshold
+HAVARTH5,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+ARTHEXER,67.51,4,DROP — HIGH MISSING,67.5% missing exceeds 60% threshold
+ARTHEDU,67.51,4,DROP — HIGH MISSING,67.5% missing exceeds 60% threshold
+LMTJOIN3,67.51,4,DROP — HIGH MISSING,67.5% missing exceeds 60% threshold
+ARTHDIS2,67.51,4,DROP — HIGH MISSING,67.5% missing exceeds 60% threshold
+JOINPAI2,67.51,13,DROP — HIGH MISSING,67.5% missing exceeds 60% threshold
+MARITAL,0.0,7,EVALUATE,To be assessed in Phase 6 feature selection
+EDUCA,0.0,7,EVALUATE,To be assessed in Phase 6 feature selection
+RENTHOM1,0.0,5,EVALUATE,To be assessed in Phase 6 feature selection
+NUMHHOL3,73.15,4,DROP — HIGH MISSING,73.2% missing exceeds 60% threshold
+NUMPHON3,92.75,9,DROP — HIGH MISSING,92.7% missing exceeds 60% threshold
+CPDEMO1B,0.07,9,EVALUATE,To be assessed in Phase 6 feature selection
+VETERAN3,0.37,4,EVALUATE,To be assessed in Phase 6 feature selection
+EMPLOY1,0.82,9,EVALUATE,To be assessed in Phase 6 feature selection
+CHILDREN,1.4,30,EVALUATE,To be assessed in Phase 6 feature selection
+INCOME3,2.02,13,EVALUATE,To be assessed in Phase 6 feature selection
+PREGNANT,81.61,4,DROP — HIGH MISSING,81.6% missing exceeds 60% threshold
+WEIGHT2,2.69,587,EVALUATE,To be assessed in Phase 6 feature selection
+HEIGHT3,2.95,142,EVALUATE,To be assessed in Phase 6 feature selection
+DEAF,3.33,4,EVALUATE,To be assessed in Phase 6 feature selection
+BLIND,3.59,4,EVALUATE,To be assessed in Phase 6 feature selection
+DECIDE,3.84,4,EVALUATE,To be assessed in Phase 6 feature selection
+DIFFWALK,4.11,4,EVALUATE,To be assessed in Phase 6 feature selection
+DIFFDRES,4.28,4,EVALUATE,To be assessed in Phase 6 feature selection
+DIFFALON,4.53,4,EVALUATE,To be assessed in Phase 6 feature selection
+SMOKE100,4.84,4,EVALUATE,To be assessed in Phase 6 feature selection
+SMOKDAY2,61.83,5,DROP — HIGH MISSING,61.8% missing exceeds 60% threshold
+USENOW3,5.01,5,EVALUATE,To be assessed in Phase 6 feature selection
+ECIGNOW1,5.25,6,EVALUATE,To be assessed in Phase 6 feature selection
+ALCDAY5,5.58,40,EVALUATE,To be assessed in Phase 6 feature selection
+AVEDRNK3,52.03,54,EVALUATE,To be assessed in Phase 6 feature selection
+DRNK3GE5,52.17,49,EVALUATE,To be assessed in Phase 6 feature selection
+MAXDRNKS,52.3,61,EVALUATE,To be assessed in Phase 6 feature selection
+FLUSHOT7,6.3,4,EVALUATE,To be assessed in Phase 6 feature selection
+FLSHTMY3,51.76,33,EVALUATE,To be assessed in Phase 6 feature selection
+IMFVPLA2,52.5,14,EVALUATE,To be assessed in Phase 6 feature selection
+PNEUVAC4,6.63,4,EVALUATE,To be assessed in Phase 6 feature selection
+HIVTST7,6.87,4,EVALUATE,To be assessed in Phase 6 feature selection
+HIVTSTD3,70.64,488,DROP — HIGH MISSING,70.6% missing exceeds 60% threshold
+FRUIT2,7.79,173,EVALUATE,To be assessed in Phase 6 feature selection
+FRUITJU2,8.15,140,EVALUATE,To be assessed in Phase 6 feature selection
+FVGREEN1,8.43,171,EVALUATE,To be assessed in Phase 6 feature selection
+FRENCHF1,8.69,147,EVALUATE,To be assessed in Phase 6 feature selection
+POTATOE1,8.96,141,EVALUATE,To be assessed in Phase 6 feature selection
+VEGETAB2,9.26,168,EVALUATE,To be assessed in Phase 6 feature selection
+PDIABTST,73.87,4,DROP — HIGH MISSING,73.9% missing exceeds 60% threshold
+PREDIAB1,73.87,5,DROP — HIGH MISSING,73.9% missing exceeds 60% threshold
+INSULIN1,94.93,4,DROP — HIGH MISSING,94.9% missing exceeds 60% threshold
+BLDSUGAR,94.93,101,DROP — HIGH MISSING,94.9% missing exceeds 60% threshold
+FEETCHK3,94.93,80,DROP — HIGH MISSING,94.9% missing exceeds 60% threshold
+DOCTDIAB,94.93,47,DROP — HIGH MISSING,94.9% missing exceeds 60% threshold
+CHKHEMO3,94.93,39,DROP — HIGH MISSING,94.9% missing exceeds 60% threshold
+FEETCHK,94.97,49,DROP — HIGH MISSING,95.0% missing exceeds 60% threshold
+EYEEXAM1,94.93,7,DROP — HIGH MISSING,94.9% missing exceeds 60% threshold
+DIABEYE,94.93,4,DROP — HIGH MISSING,94.9% missing exceeds 60% threshold
+DIABEDU,94.93,4,DROP — HIGH MISSING,94.9% missing exceeds 60% threshold
+TOLDCFS,100.0,0,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+HAVECFS,100.0,0,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+WORKCFS,100.0,0,DROP — CONSTANT,Only 1 unique value; zero predictive variance
+TOLDHEPC,97.54,4,DROP — HIGH MISSING,97.5% missing exceeds 60% threshold
+TRETHEPC,99.96,3,DROP — HIGH MISSING,100.0% missing exceeds 60% threshold
+PRIRHEPC,99.96,3,DROP — HIGH MISSING,100.0% missing exceeds 60% threshold
+HAVEHEPC,99.96,3,DROP — HIGH MISSING,100.0% missing exceeds 60% threshold
+HAVEHEPB,97.54,4,DROP — HIGH MISSING,97.5% missing exceeds 60% threshold
+MEDSHEPB,99.98,2,DROP — HIGH MISSING,100.0% missing exceeds 60% threshold
+HPVADVC4,96.97,5,DROP — HIGH MISSING,97.0% missing exceeds 60% threshold
+HPVADSHT,99.43,5,DROP — HIGH MISSING,99.4% missing exceeds 60% threshold
+TETANUS1,96.61,6,DROP — HIGH MISSING,96.6% missing exceeds 60% threshold
+SHINGLE2,96.91,4,DROP — HIGH MISSING,96.9% missing exceeds 60% threshold
+LCSFIRST,97.14,59,DROP — HIGH MISSING,97.1% missing exceeds 60% threshold
+LCSLAST,97.24,92,DROP — HIGH MISSING,97.2% missing exceeds 60% threshold
+LCSNUMCG,97.24,64,DROP — HIGH MISSING,97.2% missing exceeds 60% threshold
+LCSCTSCN,93.12,5,DROP — HIGH MISSING,93.1% missing exceeds 60% threshold
+HADMAM,97.83,4,DROP — HIGH MISSING,97.8% missing exceeds 60% threshold
+HOWLONG,98.3,7,DROP — HIGH MISSING,98.3% missing exceeds 60% threshold
+CERVSCRN,97.83,4,DROP — HIGH MISSING,97.8% missing exceeds 60% threshold
+CRVCLCNC,98.89,7,DROP — HIGH MISSING,98.9% missing exceeds 60% threshold
+CRVCLPAP,98.9,4,DROP — HIGH MISSING,98.9% missing exceeds 60% threshold
+CRVCLHPV,98.89,4,DROP — HIGH MISSING,98.9% missing exceeds 60% threshold
+HADHYST2,97.86,4,DROP — HIGH MISSING,97.9% missing exceeds 60% threshold
+PSATEST1,99.49,4,DROP — HIGH MISSING,99.5% missing exceeds 60% threshold
+PSATIME1,99.74,7,DROP — HIGH MISSING,99.7% missing exceeds 60% threshold
+PCPSARS2,99.74,5,DROP — HIGH MISSING,99.7% missing exceeds 60% threshold
+PCSTALK,99.75,6,DROP — HIGH MISSING,99.7% missing exceeds 60% threshold
+HADSIGM4,98.23,4,DROP — HIGH MISSING,98.2% missing exceeds 60% threshold
+COLNSIGM,98.72,5,DROP — HIGH MISSING,98.7% missing exceeds 60% threshold
+COLNTES1,98.95,7,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+SIGMTES1,99.99,6,DROP — HIGH MISSING,100.0% missing exceeds 60% threshold
+LASTSIG4,99.78,7,DROP — HIGH MISSING,99.8% missing exceeds 60% threshold
+COLNCNCR,98.23,4,DROP — HIGH MISSING,98.2% missing exceeds 60% threshold
+VIRCOLO1,99.63,4,DROP — HIGH MISSING,99.6% missing exceeds 60% threshold
+VCLNTES1,99.95,7,DROP — HIGH MISSING,100.0% missing exceeds 60% threshold
+SMALSTOL,99.63,3,DROP — HIGH MISSING,99.6% missing exceeds 60% threshold
+STOLTEST,99.72,6,DROP — HIGH MISSING,99.7% missing exceeds 60% threshold
+STOOLDN1,99.63,4,DROP — HIGH MISSING,99.6% missing exceeds 60% threshold
+BLDSTFIT,99.91,3,DROP — HIGH MISSING,99.9% missing exceeds 60% threshold
+SDNATES1,99.91,6,DROP — HIGH MISSING,99.9% missing exceeds 60% threshold
+CNCRDIFF,97.73,5,DROP — HIGH MISSING,97.7% missing exceeds 60% threshold
+CNCRAGE,97.77,97,DROP — HIGH MISSING,97.8% missing exceeds 60% threshold
+CNCRTYP1,97.77,32,DROP — HIGH MISSING,97.8% missing exceeds 60% threshold
+CSRVTRT3,98.33,7,DROP — HIGH MISSING,98.3% missing exceeds 60% threshold
+CSRVDOC1,98.99,12,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CSRVSUM,98.99,4,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CSRVRTRN,98.99,4,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CSRVINST,99.23,4,DROP — HIGH MISSING,99.2% missing exceeds 60% threshold
+CSRVINSR,98.99,4,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CSRVDEIN,98.99,4,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CSRVCLIN,98.99,3,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CSRVPAIN,97.94,4,DROP — HIGH MISSING,97.9% missing exceeds 60% threshold
+CSRVCTL2,99.81,5,DROP — HIGH MISSING,99.8% missing exceeds 60% threshold
+HOMBPCHK,71.28,4,DROP — HIGH MISSING,71.3% missing exceeds 60% threshold
+HOMRGCHK,71.29,4,DROP — HIGH MISSING,71.3% missing exceeds 60% threshold
+WHEREBP,90.99,5,DROP — HIGH MISSING,91.0% missing exceeds 60% threshold
+SHAREBP,90.99,6,DROP — HIGH MISSING,91.0% missing exceeds 60% threshold
+WTCHSALT,91.77,4,DROP — HIGH MISSING,91.8% missing exceeds 60% threshold
+DRADVISE,91.78,4,DROP — HIGH MISSING,91.8% missing exceeds 60% threshold
+CIMEMLOS,92.44,4,DROP — HIGH MISSING,92.4% missing exceeds 60% threshold
+CDHOUSE,99.0,7,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CDASSIST,99.01,7,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CDHELP,99.71,7,DROP — HIGH MISSING,99.7% missing exceeds 60% threshold
+CDSOCIAL,99.01,7,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CDDISCUS,99.01,4,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+CAREGIV1,57.09,5,EVALUATE,To be assessed in Phase 6 feature selection
+CRGVREL4,91.16,17,DROP — HIGH MISSING,91.2% missing exceeds 60% threshold
+CRGVLNG1,91.17,7,DROP — HIGH MISSING,91.2% missing exceeds 60% threshold
+CRGVHRS1,91.19,6,DROP — HIGH MISSING,91.2% missing exceeds 60% threshold
+CRGVPRB3,91.22,17,DROP — HIGH MISSING,91.2% missing exceeds 60% threshold
+CRGVALZD,92.1,4,DROP — HIGH MISSING,92.1% missing exceeds 60% threshold
+CRGVPER1,91.26,4,DROP — HIGH MISSING,91.3% missing exceeds 60% threshold
+CRGVHOU1,91.28,4,DROP — HIGH MISSING,91.3% missing exceeds 60% threshold
+CRGVEXPT,66.08,4,DROP — HIGH MISSING,66.1% missing exceeds 60% threshold
+ACEDEPRS,86.6,4,DROP — HIGH MISSING,86.6% missing exceeds 60% threshold
+ACEDRINK,86.63,4,DROP — HIGH MISSING,86.6% missing exceeds 60% threshold
+ACEDRUGS,86.64,4,DROP — HIGH MISSING,86.6% missing exceeds 60% threshold
+ACEPRISN,86.65,4,DROP — HIGH MISSING,86.6% missing exceeds 60% threshold
+ACEDIVRC,86.65,5,DROP — HIGH MISSING,86.7% missing exceeds 60% threshold
+ACEPUNCH,86.66,5,DROP — HIGH MISSING,86.7% missing exceeds 60% threshold
+ACEHURT1,86.67,5,DROP — HIGH MISSING,86.7% missing exceeds 60% threshold
+ACESWEAR,86.68,5,DROP — HIGH MISSING,86.7% missing exceeds 60% threshold
+ACETOUCH,86.7,5,DROP — HIGH MISSING,86.7% missing exceeds 60% threshold
+ACETTHEM,86.71,5,DROP — HIGH MISSING,86.7% missing exceeds 60% threshold
+ACEHVSEX,86.72,5,DROP — HIGH MISSING,86.7% missing exceeds 60% threshold
+ACEADSAF,86.73,7,DROP — HIGH MISSING,86.7% missing exceeds 60% threshold
+ACEADNED,86.74,7,DROP — HIGH MISSING,86.7% missing exceeds 60% threshold
+MARIJAN1,68.64,33,DROP — HIGH MISSING,68.6% missing exceeds 60% threshold
+USEMRJN3,96.91,8,DROP — HIGH MISSING,96.9% missing exceeds 60% threshold
+RSNMRJN2,96.92,5,DROP — HIGH MISSING,96.9% missing exceeds 60% threshold
+LASTSMK2,88.18,10,DROP — HIGH MISSING,88.2% missing exceeds 60% threshold
+STOPSMK2,94.52,4,DROP — HIGH MISSING,94.5% missing exceeds 60% threshold
+FIREARM5,93.03,4,DROP — HIGH MISSING,93.0% missing exceeds 60% threshold
+GUNLOAD,97.23,4,DROP — HIGH MISSING,97.2% missing exceeds 60% threshold
+LOADULK2,99.02,4,DROP — HIGH MISSING,99.0% missing exceeds 60% threshold
+RCSGENDR,86.99,3,DROP — HIGH MISSING,87.0% missing exceeds 60% threshold
+RCSRLTN2,87.08,8,DROP — HIGH MISSING,87.1% missing exceeds 60% threshold
+CASTHDX2,87.5,4,DROP — HIGH MISSING,87.5% missing exceeds 60% threshold
+CASTHNO2,98.69,4,DROP — HIGH MISSING,98.7% missing exceeds 60% threshold
+BIRTHSEX,77.55,4,DROP — HIGH MISSING,77.5% missing exceeds 60% threshold
+SOMALE,73.98,6,DROP — HIGH MISSING,74.0% missing exceeds 60% threshold
+SOFEMALE,70.07,6,DROP — HIGH MISSING,70.1% missing exceeds 60% threshold
+TRNSGNDR,43.98,6,EVALUATE,To be assessed in Phase 6 feature selection
+QSTVER,0.0,8,EVALUATE,To be assessed in Phase 6 feature selection
+QSTLANG,0.0,2,EVALUATE,To be assessed in Phase 6 feature selection
+_METSTAT,1.61,2,EVALUATE,To be assessed in Phase 6 feature selection
+_URBSTAT,1.61,2,EVALUATE,To be assessed in Phase 6 feature selection
+MSCODE,73.56,4,DROP — HIGH MISSING,73.6% missing exceeds 60% threshold
+_STSTR,0.0,2140,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_STRWT,0.0,1575,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_RAWRAKE,0.0,12,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_WT2RAKE,0.0,6313,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_IMPRACE,0.0,6,EVALUATE,To be assessed in Phase 6 feature selection
+_CHISPNC,28.91,3,EVALUATE,To be assessed in Phase 6 feature selection
+_CRACE1,86.39,9,DROP — HIGH MISSING,86.4% missing exceeds 60% threshold
+_CPRACE1,86.39,9,DROP — HIGH MISSING,86.4% missing exceeds 60% threshold
+CAGEG,88.93,4,DROP — HIGH MISSING,88.9% missing exceeds 60% threshold
+_CLLCPWT,86.99,19511,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_DUALUSE,0.0,3,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_DUALCOR,60.4,106,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_LLCPWT2,0.0,14331,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_LLCPWT,0.0,258033,DROP — SURVEY DESIGN,Survey weight/design variable; not a predictor
+_RFHLTH,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_PHYS14D,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+_MENT14D,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+_HLTHPLN,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_HCVU652,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_TOTINDA,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_RFHYPE6,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_CHOLCH3,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+_RFCHOL3,13.94,3,EVALUATE,To be assessed in Phase 6 feature selection
+_MICHD,1.06,2,TARGET,This is the target variable
+_LTASTH1,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_CASTHM1,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_ASTHMS1,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+_DRDXAR3,0.66,2,EVALUATE,To be assessed in Phase 6 feature selection
+_LMTACT3,0.66,4,EVALUATE,To be assessed in Phase 6 feature selection
+_LMTWRK3,0.66,4,EVALUATE,To be assessed in Phase 6 feature selection
+_PRACE1,0.0,10,EVALUATE,To be assessed in Phase 6 feature selection
+_MRACE1,0.0,9,EVALUATE,To be assessed in Phase 6 feature selection
+_HISPANC,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_RACE,0.0,9,EVALUATE,To be assessed in Phase 6 feature selection
+_RACEG21,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_RACEGR3,0.0,6,EVALUATE,To be assessed in Phase 6 feature selection
+_RACEPRV,0.0,8,EVALUATE,To be assessed in Phase 6 feature selection
+_SEX,0.0,2,EVALUATE,To be assessed in Phase 6 feature selection
+_AGEG5YR,0.0,14,EVALUATE,To be assessed in Phase 6 feature selection
+_AGE65YR,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_AGE80,0.0,63,EVALUATE,To be assessed in Phase 6 feature selection
+_AGE_G,0.0,6,EVALUATE,To be assessed in Phase 6 feature selection
+HTIN4,6.19,57,EVALUATE,To be assessed in Phase 6 feature selection
+HTM4,5.6,110,EVALUATE,To be assessed in Phase 6 feature selection
+WTKG3,9.25,571,EVALUATE,To be assessed in Phase 6 feature selection
+_BMI5,10.68,3887,EVALUATE,To be assessed in Phase 6 feature selection
+_BMI5CAT,10.68,4,EVALUATE,To be assessed in Phase 6 feature selection
+_RFBMI5,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_CHLDCNT,0.0,7,EVALUATE,To be assessed in Phase 6 feature selection
+_EDUCAG,0.0,5,EVALUATE,To be assessed in Phase 6 feature selection
+_INCOMG1,0.0,8,EVALUATE,To be assessed in Phase 6 feature selection
+_SMOKER3,0.0,5,EVALUATE,To be assessed in Phase 6 feature selection
+_RFSMOK3,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_CURECI1,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+DRNKANY5,0.0,4,EVALUATE,To be assessed in Phase 6 feature selection
+DROCDY3_,0.0,36,EVALUATE,To be assessed in Phase 6 feature selection
+_RFBING5,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_DRNKWK1,0.0,285,EVALUATE,To be assessed in Phase 6 feature selection
+_RFDRHV7,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_FLSHOT7,62.95,3,DROP — HIGH MISSING,62.9% missing exceeds 60% threshold
+_PNEUMO3,62.95,3,DROP — HIGH MISSING,62.9% missing exceeds 60% threshold
+_AIDTST4,6.87,3,EVALUATE,To be assessed in Phase 6 feature selection
+FTJUDA2_,10.11,128,EVALUATE,To be assessed in Phase 6 feature selection
+FRUTDA2_,10.02,159,EVALUATE,To be assessed in Phase 6 feature selection
+GRENDA1_,10.09,157,EVALUATE,To be assessed in Phase 6 feature selection
+FRNCHDA_,10.2,134,EVALUATE,To be assessed in Phase 6 feature selection
+POTADA1_,11.04,129,EVALUATE,To be assessed in Phase 6 feature selection
+VEGEDA2_,11.06,157,EVALUATE,To be assessed in Phase 6 feature selection
+_MISFRT1,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_MISVEG1,0.0,5,EVALUATE,To be assessed in Phase 6 feature selection
+_FRTRES1,0.0,2,EVALUATE,To be assessed in Phase 6 feature selection
+_VEGRES1,0.0,2,EVALUATE,To be assessed in Phase 6 feature selection
+_FRUTSU1,11.65,728,EVALUATE,To be assessed in Phase 6 feature selection
+_VEGESU1,13.71,2361,EVALUATE,To be assessed in Phase 6 feature selection
+_FRTLT1A,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_VEGLT1A,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_FRT16A,0.0,2,EVALUATE,To be assessed in Phase 6 feature selection
+_VEG23A,0.0,2,EVALUATE,To be assessed in Phase 6 feature selection
+_FRUITE1,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection
+_VEGETE1,0.0,3,EVALUATE,To be assessed in Phase 6 feature selection

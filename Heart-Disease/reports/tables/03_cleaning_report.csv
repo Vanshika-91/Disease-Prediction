@@ -1,0 +1,6 @@
+step,rows_before,cols_before,rows_after,cols_after,rows_removed,cols_removed,notes
+Target recoding,438693,303,434058,303,4635,0,"Excluded 4,635 rows with non-{1,2} _MICHD codes"
+Duplicate removal,434058,303,434058,303,0,0,Removed 0 exact duplicate rows
+Column removal,434058,303,434058,135,0,168,"Removed: 2 leakage, 17 survey design, 11 constant, 138 high-missing columns"
+Non-response recoding,434058,135,434058,135,0,0,"Recoded 191,933 non-response values to NaN"
+Feature selection,434058,135,434058,23,0,112,Retained 23 candidate features; dropped all other BRFSS columns

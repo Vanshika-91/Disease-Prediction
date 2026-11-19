@@ -1,0 +1,4 @@
+Split,Total_Samples,Positive_Cases_HD,Negative_Cases_NoHD,Prevalence_Percent
+Training Set (80%),347246,28258,318988,8.14
+Test Set (20%),86812,7065,79747,8.14
+Total Cohort,434058,35323,398735,8.14

@@ -1,0 +1,22 @@
+column,min_value,max_value,unique_count,suspicious_codes,total_suspicious_n
+_AGEG5YR,1.0,14.0,14,"[np.float64(7.0), np.float64(9.0)]",78384
+_BMI5,1200.0,9933.0,3887,None found,0
+_BMI5CAT,1.0,4.0,4,None found,0
+BPHIGH6,1.0,9.0,6,"[np.float64(7.0), np.float64(9.0)]",1910
+TOLDHI3,1.0,9.0,4,"[np.float64(7.0), np.float64(9.0)]",3144
+DIABETE4,1.0,9.0,6,"[np.float64(7.0), np.float64(9.0)]",982
+CVDSTRK3,1.0,9.0,4,"[np.float64(7.0), np.float64(9.0)]",1427
+GENHLTH,1.0,9.0,7,"[np.float64(7.0), np.float64(9.0)]",1157
+PHYSHLTH,1.0,99.0,33,"[np.float64(7.0), np.float64(9.0), np.float64(77.0), np.float64(99.0)]",16488
+MENTHLTH,1.0,99.0,33,"[np.float64(7.0), np.float64(9.0), np.float64(77.0), np.float64(99.0)]",15595
+POORHLTH,1.0,99.0,33,"[np.float64(7.0), np.float64(9.0), np.float64(77.0), np.float64(99.0)]",10552
+MEDCOST1,1.0,9.0,4,"[np.float64(7.0), np.float64(9.0)]",1359
+CHECKUP1,1.0,9.0,7,"[np.float64(7.0), np.float64(9.0)]",5903
+SMOKE100,1.0,9.0,4,"[np.float64(7.0), np.float64(9.0)]",3229
+SMOKDAY2,1.0,9.0,5,"[np.float64(7.0), np.float64(9.0)]",374
+_SMOKER3,1.0,9.0,5,[np.float64(9.0)],24970
+_RFDRHV7,1.0,9.0,3,[np.float64(9.0)],34993
+EXERANY2,1.0,9.0,4,"[np.float64(7.0), np.float64(9.0)]",926
+_TOTINDA,1.0,9.0,3,[np.float64(9.0)],928
+EDUCA,1.0,9.0,7,[np.float64(9.0)],2473
+INCOME3,1.0,99.0,13,"[np.float64(7.0), np.float64(9.0), np.float64(77.0), np.float64(99.0)]",192616

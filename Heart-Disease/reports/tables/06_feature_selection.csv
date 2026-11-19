@@ -1,0 +1,23 @@
+Feature,RF_Importance,Mutual_Info,Abs_Spearman_Corr,Selected,Selection_Justification
+_AGEG5YR,0.1477,0.03,0.0052,YES,Core clinical/demographic risk factor with high statistical importance
+RISK_FACTOR_COUNT,0.1267,0.0405,0.0083,YES,Core clinical/demographic risk factor with high statistical importance
+GENHLTH_SCORE,0.114,0.0259,0.0066,YES,Core clinical/demographic risk factor with high statistical importance
+BMI_VAL,0.0809,0.0035,0.0086,YES,Core clinical/demographic risk factor with high statistical importance
+PRIOR_STROKE,0.0658,0.0088,0.0069,YES,Core clinical/demographic risk factor with high statistical importance
+HIGH_BP,0.0599,0.0232,0.0085,YES,Core clinical/demographic risk factor with high statistical importance
+PHYSHLTH,0.0541,0.0116,0.0074,YES,Core clinical/demographic risk factor with high statistical importance
+INCOME3,0.0412,0.0074,0.0009,YES,Core clinical/demographic risk factor with high statistical importance
+POORHLTH,0.0398,0.0068,0.0081,EXCLUDED,Redundant or marginal incremental predictive value
+SEX_MALE,0.038,0.0083,0.0046,YES,Core clinical/demographic risk factor with high statistical importance
+MENTHLTH,0.0333,0.0043,0.0125,YES,Core clinical/demographic risk factor with high statistical importance
+HIGH_CHOL,0.0303,0.0165,0.0046,YES,Core clinical/demographic risk factor with high statistical importance
+EDUCA,0.0301,0.0047,0.0222,YES,Core clinical/demographic risk factor with high statistical importance
+DIABETES,0.0293,0.0122,0.0107,YES,Core clinical/demographic risk factor with high statistical importance
+_RACE,0.0252,0.0035,0.0037,YES,Core clinical/demographic risk factor with high statistical importance
+CHECKUP1,0.0172,0.0115,0.0053,YES,Core clinical/demographic risk factor with high statistical importance
+_BMI5CAT,0.0169,0.0056,0.0104,EXCLUDED,Redundant or marginal incremental predictive value
+SMOKER_EVER,0.0152,0.0093,0.0133,YES,Core clinical/demographic risk factor with high statistical importance
+_TOTINDA,0.0109,0.008,0.0017,EXCLUDED,Redundant or marginal incremental predictive value
+PHYS_ACTIVE,0.0095,0.0128,0.0028,YES,Core clinical/demographic risk factor with high statistical importance
+MEDCOST1,0.0086,0.0084,0.008,EXCLUDED,Redundant or marginal incremental predictive value
+_RFDRHV7,0.0052,0.011,0.0034,EXCLUDED,Redundant or marginal incremental predictive value

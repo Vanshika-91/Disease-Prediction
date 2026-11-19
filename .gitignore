@@ -17,3 +17,9 @@ __pycache__/
 
 # Model files
 *.pkl
+
+# Raw large datasets (>100MB rejected by GitHub)
+*.XPT
+*.xpt
+*.zip
+Heart-Disease/dataset/raw/

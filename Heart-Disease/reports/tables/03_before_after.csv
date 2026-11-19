@@ -1,0 +1,7 @@
+metric,before,after
+Total rows,438693.0,434058.0
+Total columns,303.0,23.0
+Missing cells,62343431.0,577235.0
+Missing %,46.9,5.78
+Heart Disease cases,35323.0,35323.0
+HD prevalence (%),8.14,8.14

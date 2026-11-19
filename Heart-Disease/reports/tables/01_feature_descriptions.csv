@@ -1,0 +1,31 @@
+column,category,description,exists_in_data,unique_values
+_AGEG5YR,Demographic,Age in 5-year groups (computed),True,14
+SEX1,Demographic,Sex of respondent,False,N/A
+_RACE1,Demographic,Race/ethnicity (computed),False,N/A
+EDUCA,Demographic,Education level,True,7
+INCOME3,Demographic,Annual household income,True,13
+_BMI5,Body measure,"Body mass index (computed, ×100)",True,3887
+_BMI5CAT,Body measure,BMI category (computed),True,4
+BPHIGH6,CV risk factor,Ever told blood pressure is high,True,6
+TOLDHI3,CV risk factor,Ever told cholesterol is high,True,4
+DIABETE4,CV risk factor,Ever told you have diabetes,True,6
+CVDSTRK3,CV risk factor,Ever told you had a stroke,True,4
+GENHLTH,General health,General health (1=Excellent … 5=Poor),True,7
+PHYSHLTH,General health,Days physical health was not good (past 30 d),True,33
+MENTHLTH,General health,Days mental health was not good (past 30 d),True,33
+POORHLTH,General health,Days poor health prevented usual activity,True,33
+HLTHPLN2,Healthcare access,Have any health care coverage,False,N/A
+MEDCOST1,Healthcare access,Could not see doctor due to cost (past 12 m),True,4
+CHECKUP1,Healthcare access,Length of time since last routine checkup,True,7
+SMOKE100,Lifestyle,Smoked at least 100 cigarettes in lifetime,True,4
+SMOKDAY2,Lifestyle,Frequency of days currently smoking,True,5
+_SMOKER3,Lifestyle,Computed smoking status (4 categories),True,5
+ALCDAY4,Lifestyle,Days in past 30 had at least one drink,False,N/A
+_RFDRHV7,Lifestyle,Heavy drinker (computed),True,3
+EXERANY2,Lifestyle,Physical activity in past 30 days (yes/no),True,4
+_TOTINDA,Lifestyle,Leisure-time physical activity (computed),True,3
+SLEPTIM1,Lifestyle,Average hours of sleep per 24-hour period,False,N/A
+FTJUDA2_,Diet,Fruit juice consumption per day,True,128
+FRUTDA2_,Diet,Fruit consumption per day,True,159
+VEGEDA2_,Diet,Vegetable consumption per day,True,157
+_MICHD,TARGET,TARGET: MI or coronary heart disease (computed),True,2
